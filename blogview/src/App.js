@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PostList from "./pages/PostList";
+import CreatePost from "./pages/CreatePost";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
@@ -25,6 +26,14 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route
+  path="/create"
+  element={
+    <PrivateRoute>
+      <CreatePost />
+    </PrivateRoute>
+  }
+/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
